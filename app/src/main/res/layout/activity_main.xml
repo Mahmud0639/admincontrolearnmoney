@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/adminTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Admin Control"
+        android:textSize="@dimen/_16font_mdp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_5mdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/limitRemoveAll"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/limitAllBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/_5mdp"
+        android:text="Remove limit All"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/withdrawBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        android:text="Withdraw Requests"
+        android:layout_marginTop="@dimen/_10mdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAllCaps="false"
+        android:background="@color/teal_700"
+        android:padding="@dimen/_12mdp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/adminTxt"/>
+
+    <EditText
+        android:id="@+id/referEditTxtForCheck"
+        android:layout_width="@dimen/_300mdp"
+        android:layout_marginTop="@dimen/_10mdp"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        app:layout_constraintTop_toBottomOf="@id/withdrawBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:hint="Enter refer code"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/checkReferUserBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/referEditTxtForCheck"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/_10mdp"
+        android:text="Check Refer User"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/deleteFakeUserBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/checkReferUserBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Delete Fake User"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ownerOfThisReferBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/deleteFakeUserBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Owner of Refer"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/getAllUserBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        android:text="Get All User"
+        app:layout_constraintTop_toBottomOf="@id/ownerOfThisReferBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/limitRemoveAll"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/limitAllBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="@dimen/_8mdp"
+        android:text="Limit All"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@color/white"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
