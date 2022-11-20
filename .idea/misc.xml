@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/drawable/cash_sent_box.xml" value="0.194" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/drawable/limit_box.xml" value="0.1905" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/drawable/message_box.xml" value="0.194" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/drawable/return_money_box.xml" value="0.154" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/drawable/search_bg.xml" value="0.1905" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_all_user.xml" value="0.25" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_all_user_return_money.xml" value="0.209375" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_all_user_send_message.xml" value="0.209375" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_check_refer.xml" value="0.209375" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_main.xml" value="0.209375" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_owner_of_refer.xml" value="0.209375" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_return_money.xml" value="0.25" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_send_message.xml" value="0.25" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/activity_withdraw.xml" value="0.25" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/all_user_sample.xml" value="0.22" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/check_refer_sample.xml" value="0.33" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/owner_sample.xml" value="0.33" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/layout/withdraw_sample.xml" value="0.33" />
+        <entry key="..\:/EarnMyTakaAdminControlAppManUni/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

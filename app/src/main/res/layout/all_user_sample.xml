@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_290mdp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#FFFCFC"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/_5mdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:padding="@dimen/_10mdp">
+            <ImageView
+                android:id="@+id/ownerImage"
+                android:layout_width="@dimen/_70mdp"
+                android:layout_height="@dimen/_70mdp"/>
+
+            <TextView
+                android:id="@+id/coinsIdRefer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="coins: 0.0"
+                android:textColor="@color/teal_700"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nameUserRefer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2mdp"
+                android:text="Name: Mahamudul Islam"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <TextView
+                android:id="@+id/emailUserRefer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2mdp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Email:bappimatubber1997@gmail.com"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <EditText
+                android:id="@+id/referCodeRefer"
+                android:layout_width="@dimen/_250mdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2mdp"
+                android:text=""
+                android:textColor="@android:color/holo_green_light" />
+            <EditText
+                android:id="@+id/userId"
+                android:layout_width="@dimen/_250mdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2mdp"
+                android:text=""
+                android:textColor="@android:color/holo_blue_light"/>
+
+ <EditText
+                android:id="@+id/bKashNumber"
+                android:layout_width="@dimen/_250mdp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_2mdp"
+                android:text=""
+                android:textColor="@android:color/holo_red_light"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5mdp"
+                android:layout_marginBottom="@dimen/_5mdp"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cashSentBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30mdp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@drawable/cash_sent_box"
+                    android:text="Cash Sent"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7font_mdp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/sendMessageUser"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30mdp"
+                    android:layout_marginStart="@dimen/_5mdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/message_box"
+                    android:text="Send Message"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7font_mdp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/returnMoneyBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30mdp"
+                    android:layout_marginStart="@dimen/_5mdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/return_money_box"
+                    android:text="Return Money"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7font_mdp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/limitBtn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/_30mdp"
+                    android:text="Limit"
+                    android:layout_marginEnd="@dimen/_5mdp"
+                    android:background="@drawable/limit_box"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7font_mdp"
+                    android:gravity="center"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/limitOffBtn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/_30mdp"
+                    android:text="No Limit"
+                    android:layout_marginStart="@dimen/_5mdp"
+                    android:background="@drawable/limit_box"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_7font_mdp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_gravity="start"
+                android:id="@+id/statusRefer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_marginTop="@dimen/_3mdp"
+                android:text="Status: Limit"/>
+            <TextView
+                android:id="@+id/userCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+
+
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
