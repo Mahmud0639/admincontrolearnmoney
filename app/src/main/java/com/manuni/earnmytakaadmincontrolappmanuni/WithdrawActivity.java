@@ -5,6 +5,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -20,12 +23,14 @@ public class WithdrawActivity extends AppCompatActivity {
     FirebaseFirestore database;
     ArrayList<WithdrawModel> list;
     WithdrawAdapter adapter;
+    private EditText searchBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityWithdrawBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        searchBar = findViewById(R.id.searchName);
 
         database = FirebaseFirestore.getInstance();
 
@@ -46,6 +51,32 @@ public class WithdrawActivity extends AppCompatActivity {
             }
         });
 
+        searchBar.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                filter(editable.toString());
+            }
+        });
+
+
+    }
+    private void filter(String text) {
+        ArrayList<WithdrawModel> myList = new ArrayList<>();
+        for (WithdrawModel items: list){
+            if (items.getSentBy().toLowerCase().contains(text.toLowerCase())){
+                myList.add(items);
+            }
+        }
+        adapter.filterListForUser(myList);
     }
 }

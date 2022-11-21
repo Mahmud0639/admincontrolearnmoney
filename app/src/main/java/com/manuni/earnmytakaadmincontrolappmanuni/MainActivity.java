@@ -51,6 +51,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.sendMessageToAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SendMessageToAllActivity.class));
+            }
+        });
+
+        /*binding.setUidBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.show();
+                firestore.collection("users").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        for (DocumentSnapshot documentSnapshot: queryDocumentSnapshots){
+                            documentSnapshot.getReference().update("uId",documentSnapshot.getReference().getId()).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void unused) {
+                                    dialog.dismiss();
+                                    Toast.makeText(MainActivity.this, "uId updated for all user.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        });*/
+
         binding.getAllUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

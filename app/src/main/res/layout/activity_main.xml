@@ -82,11 +82,21 @@
         android:text="Owner of Refer"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sendMessageToAll"
+        android:layout_width="@dimen/_150mdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ownerOfThisReferBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/getAllUserBtn"
+        android:text="Message To All"/>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/getAllUserBtn"
         android:layout_width="@dimen/_200mdp"
         android:layout_height="wrap_content"
         android:text="Get All User"
-        app:layout_constraintTop_toBottomOf="@id/ownerOfThisReferBtn"
+        app:layout_constraintTop_toBottomOf="@id/sendMessageToAll"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/limitRemoveAll"/>
@@ -103,4 +113,13 @@
         android:background="@android:color/holo_orange_dark"
         android:textColor="@color/white"/>
 
+    <!--<androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/setUidBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ownerOfThisReferBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Set uId"
+        android:textAllCaps="false"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

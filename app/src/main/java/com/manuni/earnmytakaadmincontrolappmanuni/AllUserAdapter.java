@@ -74,6 +74,13 @@ public class AllUserAdapter extends RecyclerView.Adapter<AllUserAdapter.AllUserV
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(context, model.getName()+" has received his withdraw.", Toast.LENGTH_SHORT).show();
+                                firebaseFirestore.collection("withdraws").document(model.getuId()).update("userEmail",model.getEmail()+"(paid)")
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Toast.makeText(context, "Paid updated.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                             }
                         });
 

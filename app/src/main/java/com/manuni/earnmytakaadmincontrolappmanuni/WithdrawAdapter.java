@@ -152,6 +152,10 @@ public class WithdrawAdapter extends RecyclerView.Adapter<WithdrawAdapter.Withdr
     public int getItemCount() {
         return list.size();
     }
+    public void filterListForUser(ArrayList<WithdrawModel> filterList){
+        list = filterList;
+        notifyDataSetChanged();
+    }
 
     public class WithdrawViewHolder extends RecyclerView.ViewHolder {
         WithdrawSampleBinding binding;

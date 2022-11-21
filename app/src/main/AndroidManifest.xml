@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EarnMyTakaAdminControlAppManUni">
         <activity
+            android:name=".SendMessageToAllActivity"
+            android:exported="false" />
+        <activity
             android:name=".AllUserReturnMoneyActivity"
             android:exported="false" />
         <activity

@@ -6,7 +6,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="@dimen/_290mdp"
-        android:layout_height="@dimen/_250mdp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="#FFFCFC"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +63,7 @@
                 android:textColor="@android:color/holo_orange_dark"
                 android:textStyle="bold" />
 
-            <TextView
+            <EditText
                 android:id="@+id/bKashUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

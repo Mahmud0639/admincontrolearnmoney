@@ -6,12 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".WithdrawActivity">
 
+    <EditText
+        android:id="@+id/searchName"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_40mdp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_5mdp"
+        android:layout_marginEnd="@dimen/_5mdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:maxLines="1"
+        android:layout_margin="@dimen/_5mdp"
+        android:drawableStart="@drawable/ic_search"
+        android:background="@drawable/search_bg"
+        android:hint="Search a name"
+        android:paddingStart="@dimen/_20mdp"
+        android:drawablePadding="@dimen/_8mdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:imeOptions="actionSearch"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/withdrawInfoRV"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:listitem="@layout/withdraw_sample"
-        app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/searchName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
