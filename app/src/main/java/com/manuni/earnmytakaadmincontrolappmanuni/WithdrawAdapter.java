@@ -12,12 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.manuni.earnmytakaadmincontrolappmanuni.databinding.WithdrawSampleBinding;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class WithdrawAdapter extends RecyclerView.Adapter<WithdrawAdapter.WithdrawViewHolder> {
     Context context;
@@ -46,7 +51,7 @@ public class WithdrawAdapter extends RecyclerView.Adapter<WithdrawAdapter.Withdr
         holder.binding.emailUser.setText(model.getuserEmail());
         holder.binding.paypalUser.setText(model.getpayPalEmail());
         holder.binding.bKashUser.setText(model.getMobile());
-        holder.binding.cashOutUser.setText(model.getMyCoins());
+        holder.binding.cashOutUser.setText("Cash out: "+model.getMyCoins());
         holder.binding.status.setText("Status: "+model.getStatus());
         holder.binding.withdrawUserCount.setText(String.format("%d",position+1));
 
@@ -61,9 +66,63 @@ public class WithdrawAdapter extends RecyclerView.Adapter<WithdrawAdapter.Withdr
                         Toast.makeText(context, "Withdraw has been done successfully!", Toast.LENGTH_SHORT).show();
                         firestore.collection("withdraws").document(model.getUserId()).update("userEmail",model.getuserEmail()+"(paid)")
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
+
                                     @Override
                                     public void onSuccess(Void unused) {
-                                        Toast.makeText(context, "Paid updated.", Toast.LENGTH_SHORT).show();
+                                        firestore.collection("users").document(model.getUserId())
+                                                        .update("withdrawCount","0").addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                    @Override
+                                                    public void onSuccess(Void unused) {
+                                                        firestore.collection("withdraws").document(model.getUserId())
+                                                                        .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                                    @Override
+                                                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                                        String mCoins = documentSnapshot.getString("myCoins");
+                                                                        assert mCoins != null;
+                                                                        double dMCoins = Double.parseDouble(mCoins);
+                                                                        double originalGift = 0.02 * dMCoins;
+
+                                                                        firestore.collection("users").document(model.getUserId())
+                                                                                .get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                                                                                    @Override
+                                                                                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                                                                        if (documentSnapshot.exists()){
+                                                                                            String referredUser = documentSnapshot.getString("referUser");
+                                                                                            assert referredUser != null;
+                                                                                            Toast.makeText(context, ""+referredUser, Toast.LENGTH_SHORT).show();
+                                                                                            firestore.collection("users").document(referredUser)
+                                                                                                    .update("coins",FieldValue.increment(originalGift)).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                                        @Override
+                                                                                                        public void onSuccess(Void unused) {
+                                                                                                            DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("ReferBalanceLists");
+
+                                                                                                            String key = dbRef.push().getKey();
+
+                                                                                                            HashMap<String,Object> hashMap = new HashMap<>();
+                                                                                                            hashMap.put("uid",""+referredUser);
+                                                                                                            hashMap.put("keyId",""+key);
+                                                                                                            hashMap.put("timestamp",""+System.currentTimeMillis());
+                                                                                                            hashMap.put("referBalance",""+originalGift);
+
+                                                                                                            assert key != null;
+                                                                                                            dbRef.child(referredUser).child(key).updateChildren(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                                                @Override
+                                                                                                                public void onSuccess(Void unused) {
+                                                                                                                    Toast.makeText(context, "Paid updated.", Toast.LENGTH_SHORT).show();
+                                                                                                                }
+                                                                                                            });
+
+                                                                                                        }
+                                                                                                    });
+                                                                                        }
+                                                                                    }
+                                                                                });
+                                                                    }
+                                                                });
+
+                                                    }
+                                                });
+
                                     }
                                 });
                     }
@@ -72,6 +131,19 @@ public class WithdrawAdapter extends RecyclerView.Adapter<WithdrawAdapter.Withdr
                 });
             }
 
+        });
+
+        holder.binding.deleteWithdrawInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+                firebaseFirestore.collection("withdraws").document(model.getUserId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(context, model.getSentBy()+" has been removed.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
         });
 
         holder.binding.sendMessageUser.setOnClickListener(new View.OnClickListener() {

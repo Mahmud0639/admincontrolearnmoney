@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*binding.setUidBtn.setOnClickListener(new View.OnClickListener() {
+        binding.setUidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.show();
@@ -77,7 +77,14 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-        });*/
+        });
+
+        binding.setTakaQuantityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,SetTakaQuantyActivity.class));
+            }
+        });
 
         binding.getAllUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override

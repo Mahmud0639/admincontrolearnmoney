@@ -85,11 +85,11 @@
         android:id="@+id/sendMessageToAll"
         android:layout_width="@dimen/_150mdp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/ownerOfThisReferBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Message To All"
         app:layout_constraintBottom_toTopOf="@id/getAllUserBtn"
-        android:text="Message To All"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setTakaQuantityBtn" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/getAllUserBtn"
@@ -113,7 +113,7 @@
         android:background="@android:color/holo_orange_dark"
         android:textColor="@color/white"/>
 
-    <!--<androidx.appcompat.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/setUidBtn"
         android:layout_width="@dimen/_200mdp"
         android:layout_height="wrap_content"
@@ -121,5 +121,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Set uId"
-        android:textAllCaps="false"/>-->
+        app:layout_constraintBottom_toTopOf="@id/setTakaQuantityBtn"
+        android:textAllCaps="false"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/setTakaQuantityBtn"
+        android:layout_width="@dimen/_200mdp"
+        android:layout_height="wrap_content"
+        android:text="Set Taka"
+        app:layout_constraintBottom_toTopOf="@id/sendMessageToAll"
+        app:layout_constraintTop_toBottomOf="@id/setUidBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
